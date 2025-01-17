@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://dbsl8on7elcsq"]
+
+[ext_resource type="Script" path="res://g.gd" id="1_tlnp4"]
+[ext_resource type="PackedScene" uid="uid://f8mefisxwryb" path="res://label_notif.tscn" id="2_fx7d8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5mwor"]
+bg_color = Color(1, 0.325147, 0.400227, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nt64i"]
+
+[node name="G" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_tlnp4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="CENTER" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="label_notif" parent="CENTER" instance=ExtResource("2_fx7d8")]
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 350.0
+offset_bottom = 23.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="AcceptDialog" type="AcceptDialog" parent="."]
+title = ";p"
+initial_position = 2
+size = Vector2i(300, 320)
+visible = true
+wrap_controls = false
+theme_override_styles/panel = SubResource("StyleBoxFlat_5mwor")
+dialog_autowrap = true
+
+[node name="qr_box" type="VBoxContainer" parent="AcceptDialog"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 1935.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="qr_text" type="Label" parent="AcceptDialog/qr_box"]
+layout_mode = 2
+text = "https://avolutioninc.net/fotoar/uploa213123123 1231 2312312311231231 231 2312 3"
+autowrap_mode = 1
+
+[node name="QrCode" type="TextureRect" parent="AcceptDialog/qr_box"]
+texture_filter = 1
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+mouse_filter = 2
+texture = SubResource("CompressedTexture2D_nt64i")
+stretch_mode = 5

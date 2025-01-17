@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://by72aa7p3acxq"]
+
+[node name="AcceptDialog" type="AcceptDialog"]
+auto_translate_mode = 1
+initial_position = 1
+size = Vector2i(300, 106)
+visible = true
+dialog_text = "asdasdasdasd asd asd asd asd asd asd  123123 123 123 12 3"
+dialog_autowrap = true
