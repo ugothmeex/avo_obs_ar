@@ -31,12 +31,13 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-current_tab = 0
+current_tab = 1
 script = ExtResource("3_xiqfx")
 OBS = NodePath("..")
 
 [node name="Home" type="TabBar" parent="TabContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -105,7 +106,6 @@ use_native_dialog = true
 
 [node name="Settings" type="TabBar" parent="TabContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -120,6 +120,36 @@ offset_right = -8.0
 offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 1
+
+[node name="tx_ip" type="LineEdit" parent="TabContainer/Settings/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+placeholder_text = "ip"
+
+[node name="tx_password" type="LineEdit" parent="TabContainer/Settings/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+placeholder_text = "password"
+
+[node name="tx_port" type="LineEdit" parent="TabContainer/Settings/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+text = "4455"
+placeholder_text = "port"
+
+[node name="btn_connect" type="Button" parent="TabContainer/Settings/VBoxContainer"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "connect"
+
+[node name="SPACE4" type="Control" parent="TabContainer/Settings/VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
 
 [node name="Label" type="Label" parent="TabContainer/Settings/VBoxContainer"]
 layout_mode = 2
@@ -147,7 +177,9 @@ text = "Select Path"
 [node name="lb_pic_path" type="Label" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 3
 text = "_"
+clip_text = true
 
 [node name="FileDialog_pic_path" type="FileDialog" parent="TabContainer/Settings/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -159,7 +191,7 @@ access = 2
 use_native_dialog = true
 
 [node name="SPACE3" type="Control" parent="TabContainer/Settings/VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="TabContainer/Settings/VBoxContainer"]
@@ -176,10 +208,11 @@ max_value = 10.0
 value = 5.0
 
 [node name="SPACE" type="Control" parent="TabContainer/Settings/VBoxContainer"]
-custom_minimum_size = Vector2(0, 30)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 
 [node name="SPACE2" type="Control" parent="TabContainer/Settings/VBoxContainer"]
+visible = false
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
@@ -235,6 +268,7 @@ visible = false
 [connection signal="pressed" from="TabContainer/Home/VBoxContainer/HBoxContainer3/btn_upload_last" to="TabContainer" method="_on_btn_upload_last_pressed"]
 [connection signal="pressed" from="TabContainer/Home/VBoxContainer/HBoxContainer3/btn_upload_manual" to="TabContainer" method="_on_btn_upload_manual_pressed"]
 [connection signal="file_selected" from="TabContainer/Home/VBoxContainer/HBoxContainer3/FileDialog_manual_upload" to="TabContainer" method="_on_file_dialog_manual_upload_file_selected"]
+[connection signal="pressed" from="TabContainer/Settings/VBoxContainer/btn_connect" to="." method="_on_btn_connect_pressed"]
 [connection signal="pressed" from="TabContainer/Settings/VBoxContainer/HBoxContainer/btn_pic_path" to="TabContainer" method="_on_btn_pic_path_pressed"]
 [connection signal="dir_selected" from="TabContainer/Settings/VBoxContainer/HBoxContainer/FileDialog_pic_path" to="TabContainer" method="_on_file_dialog_pic_path_dir_selected"]
 [connection signal="pressed" from="TabContainer/Settings/btn_load_default" to="TabContainer" method="_on_btn_load_default_pressed"]

@@ -11,6 +11,10 @@ extends TabContainer
 @onready var btn_upload_manual: Button = %btn_upload_manual
 @onready var file_dialog_manual_upload: FileDialog = %FileDialog_manual_upload
 
+@onready var tx_ip: LineEdit = %tx_ip
+@onready var tx_password: LineEdit = %tx_password
+@onready var tx_port: LineEdit = %tx_port
+
 var Last_Pic_Name := ""
 var Last_Pic_Path := ""
 #! editables
@@ -165,3 +169,7 @@ func _on_file_dialog_pic_path_file_selected(path: String) -> void:
 
 func _on_file_dialog_pic_path_dir_selected(dir: String) -> void:
 	lb_pic_path.text = dir
+
+
+func _on_btn_connect_pressed() -> void:
+	pass # Replace with function body.

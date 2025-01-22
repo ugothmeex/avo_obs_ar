@@ -22,11 +22,11 @@ func _ready() -> void:
 		#print(data)
 	#)
 	
-	obs_websocket.establish_connection()
-	
-	await obs_websocket.connection_authenticated
-	
-	obs_websocket.send_command("GetVersion")
+	#obs_websocket.establish_connection()
+	#
+	#await obs_websocket.connection_authenticated
+	#
+	#obs_websocket.send_command("GetVersion")
 	
 	#prints("==>",obs_websocket.send_command("obs_frontend_get_streaming_service"))
 
@@ -41,3 +41,16 @@ func _ready() -> void:
 ###############################################################################
 # Public functions                                                            #
 ###############################################################################
+
+@onready var tx_ip: LineEdit = %tx_ip
+@onready var tx_password: LineEdit = %tx_password
+@onready var tx_port: LineEdit = %tx_port
+
+func _on_btn_connect_pressed() -> void:
+	obs_websocket.host = str(tx_ip.text)
+	obs_websocket.password = str(tx_password.text)
+	obs_websocket.port = str(tx_port.text)
+	
+	obs_websocket.establish_connection()
+	await obs_websocket.connection_authenticated
+	obs_websocket.send_command("GetVersion")
